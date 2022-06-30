@@ -16,7 +16,7 @@ public class AccountSpacesAndLengthTests {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters(name = "test data: {0} {3}")
+    @Parameterized.Parameters(name = "test data: {0} - {1}")
     public static Object[][] getData() {
         return new Object[][]{
                 {"Oleg", false},
