@@ -26,7 +26,10 @@ public class AccountSpacesAndLengthTests {
                 {"SergeyOlegovich ", false},
                 {" Sergey Olegovich ", false},
                 {"w", false},
-                {"w1234567891234ewefe", false}
+                {"w1234567891234ewefe", false},
+                {"", false},
+                {null, false},
+                {" ", false}
         };
     }
 
