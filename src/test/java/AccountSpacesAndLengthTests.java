@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,8 +9,8 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 public class AccountSpacesAndLengthTests {
 
-    private String name;
-    private boolean expected;
+    private final String name;
+    private final boolean expected;
 
     public AccountSpacesAndLengthTests(String name, boolean expected) {
         this.name = name;

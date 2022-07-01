@@ -1,3 +1,6 @@
+import io.qameta.allure.Step;
+import org.apache.commons.lang3.ObjectUtils;
+
 public class Account {
 
     private final String name;
@@ -6,24 +9,13 @@ public class Account {
         this.name = name;
     }
 
+    @Step("Проверка имени для эмбоссирования")
     public boolean checkNameToEmboss() {
-        boolean isCorrespondingLength = false;
-        boolean isRightAndLeftSpaces = false;
-        boolean result = false;
-
-        if (name != null) { result = true;} else {return result = false;}
-
-        if ((name.length() >= 3) && (name.length() <= 19)) {isCorrespondingLength = true;}
-
-        if ((name.indexOf(" ") != 0) && (name.lastIndexOf(" ") != name.length()-1)) {} else { isRightAndLeftSpaces = true;}
-
-        if (isCorrespondingLength && !isRightAndLeftSpaces && ((name.indexOf(" ") > 0) && (name.lastIndexOf(" ") != -1) && (name.lastIndexOf(" ") > 0))) {
-            result = true;
-        } else {
-            return result = false;
-        }
-
-        return result;
+        if (name == null) {return false;}
+        boolean isLengthValid = name.length() <= 19 && name.length() >= 3;
+        boolean isSpaceOne = name.indexOf(' ') == name.lastIndexOf(' ');
+        boolean isEndSpacesNotExist = name.indexOf(' ') > 0 && name.indexOf(' ') + 1 != name.length();
+        return isLengthValid && isSpaceOne && isEndSpacesNotExist;
     }
 
 }
